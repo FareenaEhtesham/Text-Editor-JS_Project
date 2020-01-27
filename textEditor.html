@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title> Text Editor in JS</title>
+    <link rel="stylesheet" href="textEditor.css">
+    <link rel="text" href="textEditor.Js">
+<script src="https://use.fontawesome.com/fc35e7e7c3.js"></script>
+
+</head>
+
+<body onload="run();">
+    <div><br/>
+    <button onclick="execute('bold')"><i class="fa fa-bold"></i></button>
+    <button onclick="execute('italic')"><i class="fa fa-italic"></i></button>
+    <button onclick="execute('underline')"><i class="fa fa-underline"></i></button>
+    <button onclick="execute('justifyRight')"><i class="fa fa-align-right"></i></button>
+    <button onclick="execute('justifyCenter')"><i class="fa fa-align-center"></i></button>
+    <button onclick="execute('justifyLeft')"><i class="fa fa-align-left"></i></button>
+    <button onclick="execute('justifyFull')"><i class="fa fa-align-justify"></i></button>
+    <button onclick="execute('cut')"><i class="fa fa-cut"></i></button>
+    <button onclick="execute('copy')"><i class="fa fa-copy"></i></button>
+    <button onclick="execute('paste')"><i class="fa fa-paste"></i></button>
+    <button onclick="execute('strikeThrough')"><i class="fa fa-strikethrough"></i></button>
+    <br/><br/>
+    <button onclick="execute('subscript')"><i class="fa fa-subscript"></i></button>
+    <button onclick="execute('superscript')"><i class="fa fa-superscript"></i></button>
+    <button onclick="execute('undo')"><i class="fa fa-undo"></i></button>
+    <button onclick="execute('insertUnorderedList')"><i class="fa fa-list-ul"></i></button>
+    <button onclick="execute('insertOrderedList')"><i class="fa fa-list-ol"></i></button>
+Font Style:
+<select onchange="selectCommand('fontName',this.value);">
+    <option >Select Font</option>
+    <option value="Roboto">Roboto</option>
+    <option value="Open Sans">Calibri</option>
+    <option value="Montesserat" >Montesserat</option>
+    <option value="Times New Roman"> Times New Roman</option>
+</select>
+Font Size:
+<select onchange="selectCommand('fontSize',this.value)">
+    <option value="2">2</option>
+    <option value="4">4</option>
+    <option value="6">6</option>
+    <option value="8">8</option>
+    <option value="10">10</option>
+    <option value="12">12</option>
+</select><br/><br/>
+Fore Colour:<input onchange="selectCommand('foreColor',this.value)" type="color" value="#ffffff">
+
+Background Colour:<input onchange="selectCommand('hiliteColor',this.value)" type="color">
+
+Insert:<input type="file">
+<br/>
+
+
+</div>
+
+    <iframe name="writing"></iframe>
+
+<script>
+
+function run(){
+   
+   writing.document.designMode="On";
+
+}
+
+function execute(command){
+   writing.document.execCommand(command,false,null);
+}
+
+function selectCommand(command ,arg){
+
+    writing.document.execCommand(command,false,arg);
+}
+
+</script>
+</body>
+</html>
